@@ -75,7 +75,7 @@ const Dashboard = () => {
   return (
     <div className={`container ${classes.dashboard}`}>
       <PageTitle
-        pageTitle="Dashboard"
+        pageTitle="Home"
         pageDescription="All about today's patients"
       />
       <div>

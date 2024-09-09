@@ -5,7 +5,7 @@
   background: var(--fourthColor);
   padding: 2rem;
   box-shadow: var(--mainShadow);
-
+  z-index:100;
   transition: all 0.5s linear;
   overflow: scroll;
 

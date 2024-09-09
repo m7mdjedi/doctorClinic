@@ -107,7 +107,7 @@ const WaitingPatients = () => {
               </tr>
             </thead>
             <tbody>
-              {waitingPatientsAr.map((ele) => (
+              {waitingPatientsAr.slice(0,5).map((ele) => (
                 <tr key={ele.id}>
                   <td>{ele["first Name"]}</td>
                   <td>{ele["last Name"]}</td>

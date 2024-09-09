@@ -3,7 +3,8 @@
   background: var(--fourthColor);
   box-shadow: var(--mainShadow);
   border-radius: 10px;
-  overflow: hidden;
+  overflow: hidden;  
+  position:relative;
 }
 
 .card > h3 {

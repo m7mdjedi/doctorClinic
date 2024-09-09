@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../config/firebase";
+import Loader from "../components/Loader";
 
 function getTime(inputEle) {
   var timeSplit = inputEle.split(":"),
@@ -29,6 +30,7 @@ function getTime(inputEle) {
 }
 
 const AppointmentInfo = () => {
+  const [loading, setLoading] = useState("successed");
   const { id } = useParams();
   const appointment = useSelector((state) => state.patient.appointments).filter(
     (ele) => {
@@ -99,7 +101,8 @@ const AppointmentInfo = () => {
       setStatusErr("");
     }
 
-    if (valid) {
+    if (valid) { 
+      setLoading("loading"); 
       try {
         await addDoc(collection(db, "appointments"), {
           id: new Date().getTime().toString(),
@@ -109,9 +112,10 @@ const AppointmentInfo = () => {
           date: date,
           time: time,
         });
+        setLoading("successed");
         navigate("/");
       } catch (e) {
-        console.error("Error adding document: ", e);
+        setLoading("failed");
       }
     }
   };
@@ -184,7 +188,7 @@ const AppointmentInfo = () => {
         />
         {timeErr.length != 0 && <p className="text-red-400">{timeErr}</p>}
 
-        <button>Add Appointment</button>
+        <button>{loading==="successed" ? "save changes" :<Loader color="#fff" width={30} /> }</button>
       </form>
       {/* <form> 
         <h2>Personal Information</h2>

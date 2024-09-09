@@ -6,7 +6,9 @@ import { db } from "../config/firebase";
 import { doc, deleteDoc } from "firebase/firestore";
 import { useDispatch, useSelector } from "react-redux";
 import { setAppointments, setCurrentAppointment } from "../store/patientSlice";
+import Loader from "../components/Loader";
 const Appointments = () => {
+  const [loading , setLoading] = useState("successed");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -36,14 +38,16 @@ const Appointments = () => {
   };
 
   const cancelHandler = async (id) => {
+    setLoading("loading"); 
     try {
       await deleteDoc(doc(db, "appointments", id.toString()));
       appointmentsAr = appointmentsAr.filter(
         (appointment) => appointment.id !== id
       );
+      setLoading("successed"); 
       dispatch(setAppointments(appointmentsAr));
     } catch (error) {
-      console.error(error);
+      setLoading("failed"); 
     }
   };
 
@@ -98,7 +102,9 @@ const Appointments = () => {
                     <td>{ele.status}</td>
                     <td>
                       <button onClick={cancelHandler.bind(null, ele.id)}>
-                        cancel
+                       { 
+                        loading==="successed" ? "cancel"  : <Loader color="#fff" width={25}/> 
+                       }
                       </button>
                       <button onClick={startHandler.bind(null, ele.id)}>
                         start
