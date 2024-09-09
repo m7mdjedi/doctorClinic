@@ -1,0 +1,13 @@
+.pageTitle {
+  width: 100%;
+}
+.pageTitle > h2 {
+  width: 100%;
+  color: var(--mainColor);
+  font-weight: bold;
+  font-size: min(5vw, 40px);
+}
+.pageTitle > p {
+  width: 100%;
+  color: #aaa;
+}

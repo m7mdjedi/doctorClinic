@@ -1,0 +1,256 @@
+.header * {
+  transition: all 0.5s linear;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  background: var(--fourthColor);
+  display: flex;
+  box-shadow: var(--mainShadow);
+}
+
+.header > div:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  box-shadow: var(--mainShadow);
+  cursor: pointer;
+}
+
+.header > div:first-child > .toothIcon {
+  color: var(--secondColor);
+  font-size: min(10vw, 70px);
+  transition: all 0.5s linear;
+}
+
+.header > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.header > div:nth-child(2) > div:first-child {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+.header > div > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 1rem;
+  cursor: pointer;
+}
+.header > div > div > div > p {
+  width: 35px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--mainColor);
+  transition: all 0.4s linear;
+}
+.header > div > div > div:hover > p:first-child {
+  transform: translate(8px, 2px) rotate(45deg);
+  width: 20px;
+}
+.header > div > div > div:hover > p:last-child {
+  transform: translate(8px, -2px) rotate(-45deg);
+  width: 20px;
+}
+.header > div > div > div:nth-child(2) {
+  display: flex;
+}
+.header > div > div > div:nth-child(2) > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+  margin-left: 10px;
+  border-radius: 5px;
+  background: var(--secondColorLight);
+  cursor: pointer;
+  font-size: min(4vw, 20px);
+}
+
+.header > div > div > div:nth-child(2) > div:first-child {
+  background: var(--mainColorLight);
+}
+.header > div > div > div:nth-child(2) > div > .firstIcon {
+  color: var(--mainColor);
+}
+.header > div > div > div:nth-child(2) > div > .secondIcon {
+  color: var(--secondColor);
+}
+
+.header > div > div > div:nth-child(2) > div > p {
+  display: none;
+  color: var(--secondColor);
+  font-weight: 500;
+  transition: all 0.5s linear;
+}
+.header > div > div > div:nth-child(2) > div:first-child > p {
+  color: var(--mainColor);
+}
+.header > div > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 10px;
+}
+.header > div > div:nth-child(2) > div:first-child {
+  background: #eee;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.header > div > div:nth-child(2) > div:first-child:hover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(100px, 80px);
+  width: 550px;
+  height: 200%;
+}
+.header > div > div:nth-child(2) > div:first-child:hover > .notification {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-88px);
+}
+.header > div > div:nth-child(2) > div:first-child {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.header > div > div:nth-child(2) > div:last-child {
+  corsor: pointer;
+  overflow: hidden;
+  box-shadow: var(--mainShadow);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.header > div > div:nth-child(2) > div:last-child > div:first-child {
+  display: none;
+}
+.header > div > div:nth-child(2) > div:last-child > div:last-child {
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 60px;
+  height: 60px;
+}
+.header > div > div:nth-child(2) > div:last-child > div:last-child > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 1045px) {
+  .header > div:nth-child(2) > div:first-child > div:first-child {
+    display: none;
+  }
+  .header > div:nth-child(2) > div:first-child > div:last-child {
+    margin-left: 20px;
+  }
+  .header > div > div > div:nth-child(2) > div > p {
+    display: block;
+  }
+  .header > div > div:nth-child(2) > div:last-child > div:first-child {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+    margin-right: 5px;
+    background: var(--fourthColor);
+  }
+  .header > div > div:nth-child(2) > div:last-child > div:first-child > p {
+    font-weight: 600;
+    color: #000;
+    align-self: flex-end;
+  }
+  .header
+    > div
+    > div:nth-child(2)
+    > div:last-child
+    > div:first-child
+    > p:last-child {
+    font-weight: 400;
+    color: #aaa;
+  }
+}
+
+/* modals part   */
+
+/* notification  */
+.notification {
+  background: var(--fourthColor);
+  position: absolute;
+  top: 200px;
+  right: 50px;
+
+  flex-direction: column;
+  width: 350px;
+  height: calc(100vh - 150px);
+  overflow-y: scroll;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s linear, transform 0.5s linear;
+}
+
+.notification > div:first-child > h3 {
+  background: #eee;
+  font-size: min(4vw, 25px);
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 1.5rem;
+}
+.notification > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+.notification > div:nth-child(2) > div {
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--mainColorLight);
+}
+.notification > div:nth-child(2) > div > div:first-child {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--thirdColor);
+}
+.notification > div:nth-child(2) > div > div:first-child > img {
+  object-fit: cover;
+}
+.notification > div:nth-child(2) > div > div:last-child {
+  margin-left: 10px;
+}
+.notification > div:nth-child(2) > div > div:last-child > h3 {
+  font-weight: 600;
+  color: var(--mainColor);
+  margin-bottom: 5px;
+}
+.notification > div:nth-child(2) > div > div:last-child p {
+  color: #a0a0a0;
+}
+.notification > div:nth-child(2) > div > div:last-child > div {
+  display: flex;
+  justify-content: space-between;
+}

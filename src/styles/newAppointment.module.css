@@ -1,0 +1,64 @@
+.newAppointment {
+}
+
+.newAppointment > form {
+  margin-top: 40px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  background: var(--fourthColor);
+  gap: 20px;
+  border-radius: 7px;
+  box-shadow: var(--mainShadow);
+  transition: all 0.5 linear;
+}
+
+.newAppointment > form > h2 {
+  padding: 1rem 0;
+  font-size: min(4vw, 25px);
+  font-weight: 600;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--mainColorLight);
+}
+.newAppointment > form > input,
+.newAppointment > form > select {
+  padding: 1.5rem;
+  border: 1px solid var(--mainColorLight);
+  border-radius: 5px;
+  cursor: pointer;
+  color: #aaa;
+}
+.newAppointment > form > select {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  background-image: url("https://www.svgrepo.com/show/80156/down-arrow.svg");
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+  background-position: calc(100% - 25px);
+}
+.newAppointment > form > select > option {
+  padding: 1.5rem;
+  font-weight: 400;
+  color: #5f5f5f;
+  cursor: pointer;
+}
+
+.newAppointment > form > input:focus,
+.newAppointment > form > select:focus {
+  outline: none;
+  border-color: var(--mainColor);
+}
+.newAppointment > form > button {
+  padding: 10px;
+  background: var(--mainColor);
+  color: var(--fourthColor);
+  font-weight: bold;
+  align-self: flex-end;
+  border-radius: 5px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

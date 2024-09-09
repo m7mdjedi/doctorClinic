@@ -1,0 +1,92 @@
+.waitingPatients {
+}
+
+.waitingPatients > div:nth-child(2) {
+  background: var(--fourthColor);
+
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: var(--mainShadow);
+}
+.waitingPatients > div:nth-child(2) > div:first-child {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--mainColorLight);
+}
+.waitingPatients > div:nth-child(2) > div:first-child > h2 {
+  font-size: min(5vw, 30px);
+  font-weight: 600;
+}
+.waitingPatients > div:nth-child(2) > div:first-child > button {
+  padding: 10px 15px;
+  background: var(--mainColor);
+  color: var(--fourthColor);
+  font-weight: 500;
+  border-radius: 5px;
+}
+.waitingPatients > div:nth-child(2) > div:nth-child(2) {
+  overflow-y: hidden;
+  padding: 1.5rem;
+}
+.waitingPatients > div:nth-child(2) > div:nth-child(2) > table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+.waitingPatients > div:nth-child(2) > div:nth-child(2) > table > thead {
+  width: 100%;
+}
+.waitingPatients > div:nth-child(2) > div:nth-child(2) > table tr {
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.waitingPatients > div:nth-child(2) > div:nth-child(2) > table > thead {
+  background: var(--thirdColor);
+}
+.waitingPatients > div:nth-child(2) > div:nth-child(2) > table > tbody > tr {
+  border-bottom: 1px solid #ecf3fa;
+}
+.waitingPatients
+  > div:nth-child(2)
+  > div:nth-child(2)
+  > table
+  > tbody
+  > tr
+  > td,
+.waitingPatients
+  > div:nth-child(2)
+  > div:nth-child(2)
+  > table
+  > thead
+  > tr
+  > th {
+  padding: 1.5rem;
+  display: flex;
+  max-width: 200px;
+  width: 200px;
+}
+.waitingPatients
+  > div:nth-child(2)
+  > div:nth-child(2)
+  > table
+  > tbody
+  > tr
+  > td {
+  color: #7e7e7e;
+
+  font-size: 20px;
+  letter-spacing: 1px;
+  gap: 15px;
+  direction: ltr;
+  max-width: 200px;
+  width: 200px;
+  white-space: nowrap;
+  text-align: center;
+
+  overflow-y: hidden;
+}

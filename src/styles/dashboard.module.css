@@ -1,0 +1,51 @@
+.dashboard > div:nth-child(2) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 15px;
+  margin: 40px 0;
+}
+.dashboard > div:nth-child(2) > div {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background: var(--mainColor);
+  color: var(--fourthColor);
+  cursor: pointer;
+}
+.dashboard > div:nth-child(2) > div:nth-child(2) {
+  background: var(--secondColor);
+}
+.dashboard > div:nth-child(2) > div > div:last-child {
+  padding: 1.5rem 0;
+  font-size: 17px;
+  letter-spacing: 0.9px;
+}
+.dashboard > div:nth-child(2) > div > div:last-child > p:last-child {
+  font-weight: bold;
+  font-size: min(4vw, 25px);
+  letter-spacing: 0;
+}
+.dashboard > div:nth-child(2) > div > div:first-child {
+  padding: 0 1.5rem;
+}
+
+.dashboard > div:nth-child(2) > div > div > .patientIcon {
+  font-size: 30px;
+}
+.dashboard > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  margin: 100px 0;
+  gap: 100px;
+}
+
+@media (min-width: 1045px) {
+  .dashboard > div:nth-child(3) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  .dashboard > div:nth-child(3) > div {
+    width: 50%;
+  }
+}

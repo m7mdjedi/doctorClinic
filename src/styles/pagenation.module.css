@@ -1,0 +1,39 @@
+.changePageContainer {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #fafafa;
+  border-radius: 4px;
+  font-family: "Rubik";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  margin: auto;
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+}
+
+.page_item {
+  transition: 0.35;
+}
+.page_item:active {
+  scale: 0.95;
+}
+
+.page_link {
+  background-color: #f0f0f0;
+  padding: 10px;
+  font-size: 18px;
+}
+.active {
+  background-color: var(--mainColor);
+  color: white;
+}
+.non_active {
+  pointer-events: none;
+  opacity: 0.7;
+}

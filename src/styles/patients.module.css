@@ -1,0 +1,143 @@
+.patients {
+}
+
+.patients > div:nth-child(2) {
+  background: var(--fourthColor);
+
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: var(--mainShadow);
+}
+.patients > div:nth-child(2) > div:first-child {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--mainColorLight);
+}
+.patients > div:nth-child(2) > div:first-child > h2 {
+  font-size: min(5vw, 30px);
+  font-weight: 600;
+}
+.patients > div:nth-child(2) > div:first-child > button {
+  padding: 10px 15px;
+  background: var(--mainColor);
+  color: var(--fourthColor);
+  font-weight: 500;
+  border-radius: 5px;
+}
+.patients > div:nth-child(2) > div:nth-child(2) {
+  overflow-y: hidden;
+  padding: 1.5rem;
+}
+.patients > div:nth-child(2) > div:nth-child(2) > table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+.patients > div:nth-child(2) > div:nth-child(2) > table > thead {
+  width: 100%;
+}
+.patients > div:nth-child(2) > div:nth-child(2) > table tr {
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.patients > div:nth-child(2) > div:nth-child(2) > table > thead {
+  background: var(--thirdColor);
+}
+.patients
+  > div:nth-child(2)
+  > div:nth-child(2)
+  > table
+  > tbody
+  > tr:not(:last-child) {
+  border-bottom: 1px solid #ecf3fa;
+}
+.patients > div:nth-child(2) > div:nth-child(2) > table > tbody > tr > td,
+.patients > div:nth-child(2) > div:nth-child(2) > table > thead > tr > th {
+  padding: 1.5rem;
+  display: flex;
+  max-width: 200px;
+  width: 200px;
+}
+.patients > div:nth-child(2) > div:nth-child(2) > table > tbody > tr > td {
+  color: #7e7e7e;
+
+  font-size: 20px;
+  letter-spacing: 1px;
+  gap: 15px;
+  direction: ltr;
+  max-width: 200px;
+  width: 200px;
+  white-space: nowrap;
+  text-align: center;
+
+  overflow-y: hidden;
+}
+.patients
+  > div:nth-child(2)
+  > div:nth-child(2)
+  > table
+  > tbody
+  > tr
+  > td
+  > button {
+  font-size: min(4vw, 20px);
+  transition: all 0.5 linear;
+}
+.patients
+  > div:nth-child(2)
+  > div:nth-child(2)
+  > table
+  > tbody
+  > tr
+  > td
+  > button:hover {
+  color: var(--mainColor);
+  transform: scale(1.5);
+}
+
+.changePageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 4px;
+  font-family: "Rubik";
+
+  font-size: 18px;
+  line-height: 30px;
+
+  padding: 50px 20px;
+  border-top: 1px solid var(--mainColorLight);
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+}
+
+.page_item {
+  transition: 0.35;
+}
+.page_item:active {
+  scale: 0.95;
+}
+
+.page_link {
+  background-color: #f0f0f0;
+  padding: 10px;
+  font-size: 18px;
+}
+.active {
+  background-color: var(--mainColor);
+  color: white;
+}
+.non_active {
+  pointer-events: none;
+  opacity: 0.7;
+}
