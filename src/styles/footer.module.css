@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  padding: 20px;
+  padding: 20px 5px;
   text-align: center;
   background: var(--fourthColor);
   box-shadow: var(--mainShadow);

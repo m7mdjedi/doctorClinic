@@ -51,7 +51,7 @@
   border-color: var(--mainColor);
 }
 .newAppointment > form > button {
-  padding: 10px;
+  padding: 5px 7px;
   background: var(--mainColor);
   color: var(--fourthColor);
   font-weight: bold;
@@ -61,4 +61,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size:min(3vw,20px);
 }

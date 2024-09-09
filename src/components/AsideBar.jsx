@@ -24,9 +24,9 @@ const AsideBar = (props) => {
         <NavLink
           className={({ isActive }) => (isActive ? classes.active : "")}
           to="/"
-        >
+        >   
           <MdDashboard className={classes.liIcon} />
-          <p>Dashboard</p>
+          <p>Home</p>
           <div>
             <IoIosArrowForward className={classes.arrowIcon} />
           </div>
