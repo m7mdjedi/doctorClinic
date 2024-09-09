@@ -26,7 +26,8 @@
   border: 1px solid var(--mainColorLight);
   border-radius: 5px;
   cursor: pointer;
-  color: #aaa;
+  color: #aaa; 
+  width:100%;
 }
 .newAppointment > form > select {
   cursor: pointer;

@@ -4,6 +4,7 @@
   text-align: center;
   background: var(--fourthColor);
   box-shadow: var(--mainShadow);
+  font-size:min(3vw,20px);
 }
 
 .footer p {
