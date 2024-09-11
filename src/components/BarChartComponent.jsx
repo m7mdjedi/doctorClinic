@@ -79,14 +79,14 @@ const BarChartComponent = () => {
         <Bar
           dataKey={"patients"}
           type="monotone"
-          fill="#fdc4ec"
-          stroke="#fdc4ec"
+           fill="#7366ff"
+          stroke="#7366ff"
         />
         <Bar
           dataKey={"appointments"}
           type="monotone"
-          fill="#cde3fb"
-          stroke="#cde3fb"
+            fill="#dc3545"
+          stroke="#dc3545"
         />
       </BarChart>
     </ResponsiveContainer>
