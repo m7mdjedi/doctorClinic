@@ -123,7 +123,9 @@
 }
 
 .page_item {
-  transition: 0.35;
+  transition: 0.35; 
+  
+ 
 }
 .page_item:active {
   scale: 0.95;
@@ -131,7 +133,7 @@
 
 .page_link {
   background-color: #f0f0f0;
-  padding: 3px;
+  padding: 3px; 
   font-size: min(2vw,18px);
 }
 .active {

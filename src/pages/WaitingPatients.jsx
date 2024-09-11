@@ -144,9 +144,7 @@ const WaitingPatients = () => {
                     (n, i) =>
                       Math.abs(currentPage - n) <= 2 && (
                         <li
-                          className={`${classes.page_item} ${
-                            currentPage === n ? classes.active : ""
-                          }`}
+                          className={`${classes.page_item} `}
                           key={i}
                         >
                           <a
