@@ -17,12 +17,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  --mainColor: #7366ff;
-  --mainColorLight: #eae8ff;
-  --secondColor: #dc3545;
-  --secondColorLight: #fee0e8;
-  --thirdColor: #f8f8f8;
-  --fourthColor: #fff;
+
   --mainShadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background: #f8f8f8;
   position:relative;
@@ -31,6 +26,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
+}
+body{ 
+  --mainColor: #7366ff;
+  --mainColorLight: #eae8ff;
+  --secondColor: #dc3545;
+  --secondColorLight: #fee0e8;
+  --thirdColor: #f8f8f8;
+  --fourthColor: #fff;
 }
 /* custom scrol bar  */
 ::-webkit-scrollbar {
@@ -60,7 +63,11 @@
   min-height:100vh; 
   
 }
-
+@media (prefers-color-scheme : dark){ 
+  body{ 
+    --mainColor:#000;
+  }
+}
 @media (min-width: 1045px) {
   .container {
     padding-left: 140px;
