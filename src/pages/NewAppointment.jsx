@@ -128,10 +128,15 @@ const NewAppointment = () => {
 
       <form onSubmit={newAppSubmitHandler}>
         <h2>New Appointment</h2>
+        <div> 
         <input ref={fNameRef} type="text" placeholder="Patient's first name" />
         {fNameErr.length != 0 && <p className="text-red-400">{fNameErr}</p>}
+        </div>
+        <div> 
         <input ref={lNameRef} type="text" placeholder="Patient's last name" />
         {lNameErr.length != 0 && <p className="text-red-400">{lNameErr}</p>}
+        </div>
+        <div> 
         <select ref={statusRef} name="Patient  Status">
           <option value="">Patient Status</option>
           <option value="Urgent">Urgent</option>
@@ -139,8 +144,10 @@ const NewAppointment = () => {
           <option value="normal">Normal</option>
         </select>
         {statusErr.length != 0 && <p className="text-red-400">{statusErr}</p>}
+        </div>
 
-        <p className="mt-5 pl-6 text-gray-500 font-semibold">
+        <div> 
+        <p >
           {"Appointment's date:"}
         </p>
         <input
@@ -149,8 +156,11 @@ const NewAppointment = () => {
           type="date"
           min="2024-10-09"
         />
-        {dateErr.length != 0 && <p className="text-red-400">{dateErr}</p>}
-        <p className="mt-5 pl-6 text-gray-500 font-semibold">
+        {dateErr.length != 0 && <p className="text-red-400">{dateErr}</p>}  
+        </div> 
+
+        <div> 
+        <p >
           {"Appointment's time:"}
         </p>
         <input
@@ -160,7 +170,9 @@ const NewAppointment = () => {
           min="08:00:00"
           max="20:00:00"
         />
-        {timeErr.length != 0 && <p className="text-red-400">{timeErr}</p>}
+        {timeErr.length != 0 && <p className="text-red-400">{timeErr}</p>}       
+        </div>
+      
         <button>
           {loading == "successed" ? (
             "add Appointment"

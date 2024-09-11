@@ -5,9 +5,10 @@
   width: 100%;
   color: var(--mainColor);
   font-weight: bold;
-  font-size: min(5vw, 40px);
+  font-size: min(4vw, 40px);
 }
 .pageTitle > p {
   width: 100%;
   color: #aaa;
+  font-size:min(3vw,20px);
 }

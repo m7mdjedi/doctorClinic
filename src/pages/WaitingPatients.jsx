@@ -2,96 +2,77 @@ import PageTitle from "../components/PageTitle";
 import { FaEye } from "react-icons/fa";
 import { FaUserEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import classes from "../styles/waitingPatients.module.css";
-import { useEffect } from "react";
-const waitingPatientsAr = [
-  {
-    id: 1,
-    "first Name": "Rami",
-    "last Name": "Amr",
-    "phone Number": "0982993834",
-    "Blood Group": "A+",
-  },
-  {
-    id: 2,
-    "first Name": "Rami",
-    "last Name": "Amr",
-    "phone Number": "0982993834",
-    "Blood Group": "A+",
-  },
-  {
-    id: 3,
-    "first Name": "Rami",
-    "last Name": "Amr",
-    "phone Number": "0982993834",
-    "Blood Group": "A+",
-  },
-  {
-    id: 4,
-    "first Name": "Rami",
-    "last Name": "Amr",
-    "phone Number": "0982993834",
-    "Blood Group": "A+",
-  },
-  {
-    id: 5,
-    "first Name": "Rami",
-    "last Name": "Amr",
-    "phone Number": "0982993834",
-    "Blood Group": "A+",
-  },
-  {
-    id: 6,
-    "first Name": "Rami",
-    "last Name": "Amr",
-    "phone Number": "0982993834",
-    "Blood Group": "A+",
-  },
-  {
-    id: 7,
-    "first Name": "Rami",
-    "last Name": "Amr",
-    "phone Number": "0982993834",
-    "Blood Group": "A+",
-  },
-
-  {
-    id: 8,
-    "first Name": "Rami",
-    "last Name": "Amr",
-    "phone Number": "0982993834",
-    "Blood Group": "A+",
-  },
-  {
-    id: 9,
-    "first Name": "Rami",
-    "last Name": "Amr",
-    "phone Number": "0982993834",
-    "Blood Group": "A+",
-  },
-  {
-    id: 10,
-    "first Name": "Rami",
-    "last Name": "Amr",
-    "phone Number": "0982993834",
-    "Blood Group": "A+",
-  },
-];
+import classes from "../styles/patients.module.css";
+import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../config/firebase";
+import { doc, deleteDoc } from "firebase/firestore";
+import { useDispatch, useSelector } from "react-redux";
+import { setPatients } from "../store/patientSlice";
+import { useNavigate } from "react-router-dom";
 
 const WaitingPatients = () => {
+  let patientsAr = useSelector((state) => state.patient.patients);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+
+    async function fetchPatients() {
+      let ar = [];
+      const querySnapshot = await getDocs(collection(db, "patients"));
+      querySnapshot.forEach((doc) => {
+        ar.push({ ...doc.data(), id: doc.id });
+      });
+      dispatch(setPatients(ar));
+    }
+    fetchPatients();
+  }, [dispatch]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 5;
+  const lastIndex = currentPage * productsPerPage;
+  const firstIndex = lastIndex - productsPerPage;
+  const dataSlice = patientsAr.slice(firstIndex, lastIndex);
+  const npage = Math.ceil(patientsAr.length / productsPerPage);
+  const numbers = [...Array(npage + 1).keys()].slice(1);
+
+  const prePage = () => {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  const changePage = (id) => {
+    setCurrentPage(id);
+  };
+  const nextPage = () => {
+    if (currentPage !== npage) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const deleteHandler = async (id) => {
+    console.log(id);
+    try {
+      await deleteDoc(doc(db, "appointments", id));
+      patientsAr = patientsAr.filter((patient) => patient.id !== id);
+      dispatch(setPatients(patientsAr));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const newPatientHandler = () => {
+    navigate("/newPatient");
+  };
   return (
-    <div className={`container ${classes.waitingPatients}`}>
+    <div className={`container ${classes.patients}`}>
       <PageTitle
         pageTitle="Waiting Patients"
-        pageDescription="Here are all our Waiting Patients"
+        pageDescription="Here are Waiting Paitents List"
       />
       <div>
         <div>
-          <h2> Waiting Patients</h2>
-          <button>New Patient</button>
+          <h2>Waiting Patients</h2>
+          <button onClick={newPatientHandler}>New Patient</button>
         </div>
 
         <div>
@@ -107,12 +88,12 @@ const WaitingPatients = () => {
               </tr>
             </thead>
             <tbody>
-              {waitingPatientsAr.slice(0,5).map((ele) => (
+              {dataSlice.map((ele) => (
                 <tr key={ele.id}>
-                  <td>{ele["first Name"]}</td>
-                  <td>{ele["last Name"]}</td>
-                  <td>{ele["phone Number"]}</td>
-                  <td>{ele["Blood Group"]}</td>
+                  <td>{ele["firstName"]}</td>
+                  <td>{ele["lastName"]}</td>
+                  <td>{ele["phoneNum"]}</td>
+                  <td>{ele["bloodGroup"]}</td>
                   <td>
                     <button>
                       <FaEye />
@@ -120,13 +101,95 @@ const WaitingPatients = () => {
                     <button>
                       <FaUserEdit />
                     </button>
-                    <button>
+                    <button onClick={deleteHandler.bind(null, ele.id)}>
                       <MdDelete />
                     </button>
                   </td>
                 </tr>
               ))}
             </tbody>
+            <tfoot>
+              <div className={classes.changePageContainer}>
+                <span >
+                  There are {dataSlice.length} of {patientsAr.length}
+                </span>
+                <ul className={classes.pagination}>
+                  <li
+                    className={`${classes.page_item} ${
+                      currentPage === 1 ? classes.non_active : ""
+                    }`}
+                  >
+                    <a
+                      href="#"
+                      className={`${classes.page_link}`}
+                      onClick={prePage}
+                    >
+                      Prev
+                    </a>
+                  </li>
+                  {currentPage - 4 > 1 && (
+                    <li className={classes.page_item}>
+                      <a
+                        href="#"
+                        className={classes.page_link}
+                        onClick={() => changePage(1)}
+                      >
+                        {1}
+                      </a>{" "}
+                      ....
+                    </li>
+                  )}
+
+                  {numbers.map(
+                    (n, i) =>
+                      Math.abs(currentPage - n) <= 2 && (
+                        <li
+                          className={`${classes.page_item} ${
+                            currentPage === n ? classes.active : ""
+                          }`}
+                          key={i}
+                        >
+                          <a
+                            href="#"
+                            className={`${classes.page_link} ${
+                              currentPage === n ? classes.active : ""
+                            }`}
+                            onClick={() => changePage(n)}
+                          >
+                            {n}
+                          </a>
+                        </li>
+                      )
+                  )}
+                  {currentPage + 4 < npage && (
+                    <li className={classes.page_item}>
+                      ....{" "}
+                      <a
+                        href="#"
+                        className={classes.page_link}
+                        onClick={() => changePage(npage)}
+                      >
+                        {npage}
+                      </a>
+                    </li>
+                  )}
+
+                  <li
+                    className={`${classes.page_item} ${
+                      currentPage === npage ? classes.non_active : ""
+                    }`}
+                  >
+                    <a
+                      href="#"
+                      className={classes.page_link}
+                      onClick={nextPage}
+                    >
+                      Next
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </tfoot>
           </table>
         </div>
       </div>

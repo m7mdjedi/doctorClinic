@@ -1,9 +1,6 @@
-.appointments {
-}
 
 .appointments > div:nth-child(2) {
   background: var(--fourthColor);
-
   margin-top: 40px;
   border-radius: 10px;
   box-shadow: var(--mainShadow);
@@ -13,11 +10,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
+  padding: .5rem;
   border-bottom: 1px solid var(--mainColorLight);
+  transition:.5s;
 }
 .appointments > div:nth-child(2) > div:first-child > h2 {
-  font-size: min(4vw, 25px);
+  font-size: min(3vw, 25px);
   font-weight: 600;
 }
 .appointments > div:nth-child(2) > div:first-child > button {
@@ -30,7 +28,7 @@
 }
 .appointments > div:nth-child(2) > div:nth-child(2) {
   overflow-y: hidden;
-  padding: 1.5rem;
+  padding: .5rem;
 }
 .appointments > div:nth-child(2) > div:nth-child(2) > table {
   width: 100%;
@@ -60,25 +58,22 @@
 
 .appointments > div:nth-child(2) > div:nth-child(2) > table > tbody > tr > td,
 .appointments > div:nth-child(2) > div:nth-child(2) > table > thead > tr > th {
-  padding: 1.5rem;
+  padding: .5rem;
   display: flex;
-  max-width: 200px;
-  width: 200px;
-  font-size: 20px;
+  max-width: 100px;
+  width: 100px;
+  font-size: min(3vw,20px);
+  justify-content:center;
+  flex-direction:column;
+  align-items:center;
 }
 .appointments > div:nth-child(2) > div:nth-child(2) > table > tbody > tr > td {
   color: #7e7e7e;
-
-  font-size: 20px;
-  letter-spacing: 1px;
-  gap: 15px;
-  direction: ltr;
-  max-width: 200px;
-  width: 200px;
+  gap:5px;
   white-space: nowrap;
   text-align: center;
-
-  overflow-y: hidden;
+  text-overflow:ellipsis;
+  overflow: hidden;
 }
 .appointments
   > div:nth-child(2)
@@ -89,12 +84,12 @@
   > td
   > button {
   color: var(--fourthColor);
-  border-radius: 5px;
-  padding: 5px;
-  font-size: 18px;
+  border-radius: 3px;
+  padding:5px;
+  font-size: var(2vw,18px);
   font-weight: 500;
   background-color: var(--secondColor);
-  width:150px;
+  width:75px;
   display:flex; 
   align-items:center;
   justify-content:center;
@@ -115,14 +110,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   border-radius: 4px;
-  font-family: "Rubik";
-
-  font-size: 18px;
+  font-size: min(3vw,20px);
   line-height: 30px;
-
-  padding: 50px 20px;
+  padding: .5rem;
   border-top: 1px solid var(--mainColorLight);
 }
 
@@ -140,8 +131,8 @@
 
 .page_link {
   background-color: #f0f0f0;
-  padding: 10px;
-  font-size: 18px;
+  padding: 3px;
+  font-size: min(2vw,18px);
 }
 .active {
   background-color: var(--mainColor);
@@ -150,4 +141,28 @@
 .non_active {
   pointer-events: none;
   opacity: 0.7;
+}
+
+
+@media (min-width:1045px){ 
+  .appointments > div:nth-child(2) > div:first-child {
+    padding:1.5rem; 
+  }
+  .appointments > div:nth-child(2) > div:first-child > button {
+    padding: 7px 10px; 
+  }
+  .appointments > div:nth-child(2) > div:nth-child(2) {
+    padding: 1.5rem;
+  }
+  .appointments > div:nth-child(2) > div:nth-child(2) > table > tbody > tr > td,
+.appointments > div:nth-child(2) > div:nth-child(2) > table > thead > tr > th {
+
+
+  max-width: 200px;
+  width: 200px; 
+  flex-direction:row;
+}
+.changePageContainer{ 
+  padding:1.5rem;
+}
 }

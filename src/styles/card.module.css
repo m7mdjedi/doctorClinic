@@ -1,18 +1,30 @@
 .card {
+  border-radius: 7px;
   width: 100%;
   background: var(--fourthColor);
   box-shadow: var(--mainShadow);
-  border-radius: 10px;
   overflow: hidden;  
   position:relative;
 }
 
 .card > h3 {
-  padding: 2rem;
+  padding: .5rem;
   font-size: min(4vw, 25px);
   font-weight: bold;
   border-bottom: 1px solid var(--mainColorLight);
 }
 .card > div {
-  padding: 2rem;
+  padding: .5rem;
+}
+
+@media (min-width:1045px){ 
+  .card {
+    border-radius: 10px; 
+  } 
+  .card > h3 {
+    padding: 1.5rem; 
+  }
+  .card > div {
+    padding: 1.5rem;
+  }
 }

@@ -8,7 +8,10 @@
   padding: 0;
   font-family: Rubik, sans-serif;
 
-  /* outline:1px solid red;  */
+  outline:1px solid red; 
+} 
+*:before{ 
+  outline:1px solid blue;
 }
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -24,11 +27,12 @@
   --fourthColor: #fff;
   --mainShadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background: #f8f8f8;
-
+  position:relative;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 /* custom scrol bar  */
 ::-webkit-scrollbar {
@@ -55,6 +59,8 @@
 .container {
   min-width: 100%;
   padding: 170px 2rem;
+  min-height:100vh; 
+  
 }
 
 @media (min-width: 1045px) {

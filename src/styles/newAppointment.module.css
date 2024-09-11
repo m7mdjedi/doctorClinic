@@ -1,35 +1,33 @@
-.newAppointment {
-}
-
 .newAppointment > form {
-  margin-top: 40px;
-  padding: 1.5rem;
+  margin-top: 20px;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   background: var(--fourthColor);
-  gap: 20px;
+  gap: 10px;
   border-radius: 7px;
   box-shadow: var(--mainShadow);
   transition: all 0.5 linear;
 }
 
 .newAppointment > form > h2 {
-  padding: 1rem 0;
-  font-size: min(4vw, 25px);
+  padding: 0.5rem 0;
+  font-size: min(3vw, 20px);
   font-weight: 600;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border-bottom: 1px solid var(--mainColorLight);
 }
-.newAppointment > form > input,
-.newAppointment > form > select {
-  padding: 1.5rem;
+.newAppointment > form > div > input,
+.newAppointment > form > div > select {
+  padding: 0.5rem;
   border: 1px solid var(--mainColorLight);
   border-radius: 5px;
   cursor: pointer;
-  color: #aaa; 
-  width:100%;
+  color: #aaa;
+  width: 100%;
+  font-size: min(2.5vw, 18px);
 }
-.newAppointment > form > select {
+.newAppointment > form > div > select {
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
@@ -37,30 +35,56 @@
   background-image: url("https://www.svgrepo.com/show/80156/down-arrow.svg");
   background-repeat: no-repeat;
   background-size: 14px 14px;
-  background-position: calc(100% - 25px);
+  background-position: calc(100% - 10px);
 }
-.newAppointment > form > select > option {
-  padding: 1.5rem;
+.newAppointment > form > div > select > option {
+  padding: 0.5rem;
   font-weight: 400;
   color: #5f5f5f;
   cursor: pointer;
 }
+.newAppointment > form > div > p {
+  font-size: min(2.5vw, 18px);
+}
 
-.newAppointment > form > input:focus,
-.newAppointment > form > select:focus {
+.newAppointment > form > div > input:focus,
+.newAppointment > form > div > select:focus {
   outline: none;
   border-color: var(--mainColor);
 }
 .newAppointment > form > button {
-  padding: 5px 7px;
+  padding: 5px;
+  width: 150px;
   background: var(--mainColor);
   color: var(--fourthColor);
   font-weight: bold;
   align-self: flex-end;
   border-radius: 5px;
-  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size:min(3vw,20px);
+  font-size: min(2.5vw, 18px);
+}
+
+@media (min-width: 1045px) {
+  .newAppointment > form {
+    margin-top: 40px;
+    padding: 1.5rem;
+    gap: 15px;
+  }
+  .newAppointment > form > h2 {
+    padding: 1.5rem 0;
+    margin-bottom: 40px;
+  }
+  .newAppointment > form > div > input,
+  .newAppointment > form > div > select {
+    padding: 1.5rem;
+  }
+  .newAppointment > form > div > select > option {
+    padding: 1.5rem;
+  }
+  .newAppointment > form > button {
+    padding: 7px;
+    width: 200px;
+  }
 }

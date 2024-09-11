@@ -1,36 +1,33 @@
-.patients {
-}
-
-.patients > div:nth-child(2) {
+/* .patients > div:nth-child(2) {
+  margin-top: 20px;
+  border-radius: 7px;
   background: var(--fourthColor);
-
-  margin-top: 40px;
-  border-radius: 10px;
   box-shadow: var(--mainShadow);
 }
 .patients > div:nth-child(2) > div:first-child {
+  padding: .5rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
   border-bottom: 1px solid var(--mainColorLight);
 }
 .patients > div:nth-child(2) > div:first-child > h2 {
-  font-size: min(4vw, 25px);
+  font-size: min(3vw, 25px);
   font-weight: 600;
 }
 .patients > div:nth-child(2) > div:first-child > button {
-  padding: 5px 7px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size:min(2.5vw,20px);
   background: var(--mainColor);
   color: var(--fourthColor);
   font-weight: 500;
-  border-radius: 5px;
-  font-size:min(3vw,20px);
+  
 }
 .patients > div:nth-child(2) > div:nth-child(2) {
+  padding: .5rem;
   overflow-y: hidden;
-  padding: 1.5rem;
 }
 .patients > div:nth-child(2) > div:nth-child(2) > table {
   width: 100%;
@@ -59,23 +56,21 @@
 }
 .patients > div:nth-child(2) > div:nth-child(2) > table > tbody > tr > td,
 .patients > div:nth-child(2) > div:nth-child(2) > table > thead > tr > th {
-  padding: 1.5rem;
+  padding: .5rem;
+  max-width: 100px;
+  width: 100px;
   display: flex;
-  max-width: 200px;
-  width: 200px;
 }
 .patients > div:nth-child(2) > div:nth-child(2) > table > tbody > tr > td {
   color: #7e7e7e;
-
-  font-size: 20px;
+  gap: 5px;
+  max-width: 100px;
+  width: 100px;
+  font-size: min(2.5vw,20px); 
   letter-spacing: 1px;
-  gap: 15px;
   direction: ltr;
-  max-width: 200px;
-  width: 200px;
   white-space: nowrap;
   text-align: center;
-
   overflow-y: hidden;
 }
 .patients
@@ -86,7 +81,145 @@
   > tr
   > td
   > button {
+  font-size: min(2.5vw, 20px);
+  transition: all 0.5 linear;
+}
+.patients
+  > div:nth-child(2)
+  > div:nth-child(2)
+  > table
+  > tbody
+  > tr
+  > td
+  > button:hover {
+  color: var(--mainColor);
+  transform: scale(1.5);
+}
+
+.changePageContainer {
+  padding: 10px;
+  border-radius: 2px;
+  font-size: min(2.5vw,20px);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 30px;
+  border-top: 1px solid var(--mainColorLight);
+}
+
+.pagination {
+  gap:2px;
+  display: flex;
+}
+
+.page_item {
+  transition: 0.35;
+}
+.page_item:active {
+  scale: 0.95;
+}
+
+.page_link {
+  padding: 7px;
+  font-size: 18px;
+  background-color: #f0f0f0;
+}
+.active {
+  background-color: var(--mainColor);
+  color: white;
+}
+.non_active {
+  pointer-events: none;
+  opacity: 0.7;
+} */
+
+
+
+.patients > div:nth-child(2) {
+  background: var(--fourthColor);
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: var(--mainShadow);
+}
+.patients > div:nth-child(2) > div:first-child {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem;
+  border-bottom: 1px solid var(--mainColorLight);
+  transition:.5s;
+}
+.patients > div:nth-child(2) > div:first-child > h2 {
+  font-size: min(3vw, 25px);
+  font-weight: 600;
+}
+.patients > div:nth-child(2) > div:first-child > button {
+  padding: 5px 7px;
+  background: var(--mainColor);
+  color: var(--fourthColor);
+  font-weight: 500;
+  border-radius: 5px;
   font-size: min(3vw, 20px);
+}
+.patients > div:nth-child(2) > div:nth-child(2) {
+  overflow-y: hidden;
+  padding: .5rem;
+}
+.patients > div:nth-child(2) > div:nth-child(2) > table {
+  width: 100%;
+  border-collapse: collapse;
+  /* white-space:nowrap;  */
+}
+.patients > div:nth-child(2) > div:nth-child(2) > table > thead {
+  width: 100%;
+}
+.patients > div:nth-child(2) > div:nth-child(2) > table tr {
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.patients > div:nth-child(2) > div:nth-child(2) > table > thead {
+  background: var(--thirdColor);
+}
+.patients
+  > div:nth-child(2)
+  > div:nth-child(2)
+  > table
+  > tbody
+  > tr:not(:last-child) {
+  border-bottom: 1px solid #ecf3fa;
+}
+
+.patients > div:nth-child(2) > div:nth-child(2) > table > tbody > tr > td,
+.patients > div:nth-child(2) > div:nth-child(2) > table > thead > tr > th {
+  padding: .5rem;
+  display: flex;
+  max-width: 100px;
+  width: 100px;
+  font-size: min(3vw,20px);
+  justify-content:center;
+  align-items:center;
+}
+.patients > div:nth-child(2) > div:nth-child(2) > table > tbody > tr > td {
+  color: #7e7e7e;
+  gap:5px;
+  white-space: nowrap;
+  text-align: center;
+  text-overflow:ellipsis;
+  overflow: hidden;
+}
+.patients
+  > div:nth-child(2)
+  > div:nth-child(2)
+  > table
+  > tbody
+  > tr
+  > td
+  > button {
+  font-size: min(2.5vw, 20px);
   transition: all 0.5 linear;
 }
 .patients
@@ -106,14 +239,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   border-radius: 4px;
-  font-family: "Rubik";
-
-  font-size: 18px;
+  font-size: min(3vw,20px);
   line-height: 30px;
-
-  padding: 50px 20px;
+  padding: .5rem;
   border-top: 1px solid var(--mainColorLight);
 }
 
@@ -131,8 +260,8 @@
 
 .page_link {
   background-color: #f0f0f0;
-  padding: 10px;
-  font-size: 18px;
+  padding: 3px;
+  font-size: min(2vw,18px);
 }
 .active {
   background-color: var(--mainColor);
@@ -141,4 +270,41 @@
 .non_active {
   pointer-events: none;
   opacity: 0.7;
+}
+
+
+@media (min-width:1045px){ 
+  .patients > div:nth-child(2) > div:first-child {
+    padding:1.5rem; 
+  }
+  .patients > div:nth-child(2) > div:first-child > button {
+    padding: 7px 10px; 
+  }
+  .patients > div:nth-child(2) > div:nth-child(2) {
+    padding: 1.5rem;
+  }
+  .patients > div:nth-child(2) > div:nth-child(2) > table > tbody > tr > td,
+.patients > div:nth-child(2) > div:nth-child(2) > table > thead > tr > th {
+
+
+  max-width: 200px;
+  width: 200px; 
+  flex-direction:row;
+  gap:15px;
+}
+.patients
+  > div:nth-child(2)
+  > div:nth-child(2)
+  > table
+  > tbody
+  > tr
+  > td
+  > button {
+  font-size: min(2.5vw, 20px);
+  transition: all 0.5 linear;
+}
+
+.changePageContainer{ 
+  padding:1.5rem;
+}
 }

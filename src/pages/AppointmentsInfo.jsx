@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import PageTitle from "../components/PageTitle";
-import classes from "../styles/appointmentInfo.module.css";
+import classes from "../styles/newAppointment.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { collection, addDoc } from "firebase/firestore";
@@ -126,16 +126,17 @@ const AppointmentInfo = () => {
     timeRef.current.showPicker();
   };
   return (
-    <div className={`container ${classes.appointmentInfo}`}>
+    <div className={`container ${classes.newAppointment}`}>
       <PageTitle
         pageTitle="Appointment Information"
         pageDescription="Here all Information about this user"
       />
       <form onSubmit={newAppSubmitHandler}>
-        <h2>New Appointment</h2>
+        <h2>Appointment Details</h2>
 
-        <p className="mt-5 pl-6 text-gray-500 font-semibold">
-          Paitent First Name
+        <div> 
+        <p >
+          Paitent First Name:
         </p>
         <input
           ref={fNameRef}
@@ -144,8 +145,10 @@ const AppointmentInfo = () => {
         />
         {fNameErr.length != 0 && <p className="text-red-400">{fNameErr}</p>}
 
-        <p className="mt-5 pl-6 text-gray-500 font-semibold">
-          Paitent Last Name
+        </div>
+        <div> 
+        <p >
+          Paitent Last Name:
         </p>
         <input
           ref={lNameRef}
@@ -154,7 +157,9 @@ const AppointmentInfo = () => {
         />
         {lNameErr.length != 0 && <p className="text-red-400">{lNameErr}</p>}
 
-        <p className="mt-5 pl-6 text-gray-500 font-semibold">Paitent Status</p>
+        </div>
+        <div> 
+        <p >Paitent Status:</p>
         <select ref={statusRef} name="Patient  Status">
           <option value={appointment.status}>{appointment.status}</option>
           <option value="Urgent">Urgent</option>
@@ -163,7 +168,9 @@ const AppointmentInfo = () => {
         </select>
         {statusErr.length != 0 && <p className="text-red-400">{statusErr}</p>}
 
-        <p className="mt-5 pl-6 text-gray-500 font-semibold">
+        </div>
+    <div> 
+    <p >
           {"  Appointment's date:"}
         </p>
         <input
@@ -175,7 +182,9 @@ const AppointmentInfo = () => {
         />
         {dateErr.length != 0 && <p className="text-red-400">{dateErr}</p>}
 
-        <p className="mt-5 pl-6 text-gray-500 font-semibold">
+    </div>
+  <div> 
+  <p >
           {"Appointment's time:"}
         </p>
         <input
@@ -188,45 +197,9 @@ const AppointmentInfo = () => {
         />
         {timeErr.length != 0 && <p className="text-red-400">{timeErr}</p>}
 
+  </div>
         <button>{loading==="successed" ? "save changes" :<Loader color="#fff" width={30} /> }</button>
       </form>
-      {/* <form> 
-        <h2>Personal Information</h2>
-        <div>
-          <label>
-            First Name <span>*</span>
-          </label>
-          <input type="text" name="firstName" placeholder={''} />
-        </div>
-        <div>
-          <label>
-            Last Name <span>*</span>
-          </label>
-          <input type="text" name="lastName" placeholder="sami" />
-        </div>
-
-        <div>
-          <label>
-            Patient Status <span>*</span>
-          </label>
-          <select name="Patient  Status">
-            <option value="">Patient Status</option>
-            <option value="Urgent">Urgetn</option>
-            <option value="Previous">Previous</option>
-          </select>
-        </div>
-        <div>
-          <label>
-            Date <span>*</span>
-          </label>
-          <input type="date" value="2024-10-09" />
-        </div>
-
-        <div>
-          <button>cancel</button>
-          <button>save</button>
-        </div>
-      </form> */}
     </div>
   );
 };

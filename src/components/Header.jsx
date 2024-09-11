@@ -11,7 +11,7 @@ const notificationsAr = [
   {
     id: 1,
     title: "New User",
-    message: "User created successfully",
+    message: "User created successfully here where it is created",
     time: "10:00 PM",
     date: "9 / 10 / 2024",
   },

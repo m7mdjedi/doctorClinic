@@ -110,7 +110,7 @@ const Patients = () => {
             </tbody>
             <tfoot>
               <div className={classes.changePageContainer}>
-                <span className="text-xl font-semibold">
+                <span >
                   There are {dataSlice.length} of {patientsAr.length}
                 </span>
                 <ul className={classes.pagination}>

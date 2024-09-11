@@ -1,14 +1,24 @@
 .footer {
+  padding: 10px 5px;
   width: 100%;
-  padding: 20px 5px;
   text-align: center;
   background: var(--fourthColor);
   box-shadow: var(--mainShadow);
   font-size:min(3vw,20px);
+  position:absolute; 
+  bottom:0; 
+  left:0;
 }
 
 .footer p {
   display: inline;
   color: var(--mainColor);
   font-weight: bold;
+}  
+
+
+@media (min-width:1045px){ 
+  .footer {
+    padding: 15px 5px; 
+  }
 }
