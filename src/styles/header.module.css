@@ -1,11 +1,9 @@
-.header * {
-  transition: all 0.5s linear;
-}
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 100;
   width: 100%;
   background: var(--fourthColor);
   display: flex;
@@ -36,7 +34,6 @@
 
 .header > div:nth-child(2) > div:first-child {
   display: flex;
-
   align-items: center;
   justify-content: center;
 }
@@ -45,7 +42,7 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding: 0.7rem;
+  padding: 0.5rem;
   cursor: pointer;
 }
 .header > div > div > div > p {
@@ -71,12 +68,12 @@
   justify-content: center;
   align-items: center;
   gap: 6px;
-  padding: .7rem;
+  padding: .5rem;
   margin-left: 4px;
   border-radius: 5px;
   background: var(--secondColorLight);
   cursor: pointer;
-  font-size: min(4vw, 20px);
+  font-size: min(3vw, 20px);
 }
 
 .header > div > div > div:nth-child(2) > div:first-child {
@@ -101,31 +98,25 @@
 .header > div > div:nth-child(2) {
   display: flex;
   align-items: center;
-  padding: .8rem;
+  padding: .5rem;
   gap: 6px;
 }
-.header > div > div:nth-child(2) > div:first-child {
+.header  .notificationDiv {
   background: #eee;
   border-radius: 3px;
   cursor: pointer;
+  background:red;
   
 }
-.header > div > div:nth-child(2) > div:first-child:hover:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(100px, 80px);
-  width: 550px;
-  height: 200%;
+
+.header .notificationDiv:hover > .notification {
+ transition:all .5s linear; 
+ opacity:1; 
+ visibility:visible; 
+ transform:translateY(-88px);
 
 
-}
-.header > div > div:nth-child(2) > div:first-child:hover > .notification {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(-88px);
-  transition:all .2s ease-out;
+
 }
 .header > div > div:nth-child(2) > div:first-child {
   padding: 7px;
@@ -191,6 +182,9 @@
     font-weight: 400;
     color: #aaa;
   }
+  .header .notificationDiv:hover > .notification {
+    transform:translateY(-84px); 
+  }
 }
 
 /* modals part   */
@@ -199,17 +193,16 @@
 .notification {
   background: var(--fourthColor);
   position: absolute;
-  top: 180px;
+  top: 175px;
   right: 0;
-
   flex-direction: column;
   width: 250px;
   height: calc(100vh - 250px);
   overflow-y: scroll;
-
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.5s linear, transform 0.5s linear;
+  transition:all .5s linear;
+
 }
 
 .notification > div:first-child > h3 {
@@ -273,3 +266,5 @@
     width:300px
   }
 }
+
+

@@ -105,7 +105,7 @@ const Header = (props) => {
         <div>
           {/* profile notification  */}
 
-          <div>
+          <div className={classes.notificationDiv}>
             {/* icon   */}
 
             <Lottie

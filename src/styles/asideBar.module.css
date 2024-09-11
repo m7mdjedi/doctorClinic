@@ -1,11 +1,11 @@
 .asideBar {
   position: fixed;
-  top: 96px;
+  top: 94px;
   bottom: 0;
   background: var(--fourthColor);
   padding: 2rem;
   box-shadow: var(--mainShadow);
-  z-index:100;
+  z-index:90;
   transition: all 0.5s linear;
   overflow: scroll;
 

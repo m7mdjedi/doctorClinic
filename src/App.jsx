@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AsideBar from "./components/AsideBar";
 import Header from "./components/Header";
 import Dashboard from "./pages/Dashboard";
@@ -13,6 +13,9 @@ import AppointmentInfo from "./pages/AppointmentsInfo";
 
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
+  useEffect(()=>{ 
+   
+  },[])
   const menuClickedHandler = () => {
     setMenuClicked(!menuClicked);
   };
